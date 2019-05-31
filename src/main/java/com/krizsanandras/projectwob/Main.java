@@ -12,8 +12,6 @@ public class Main {
         //command.insertMarketplace();
         //command.insertListingStatus();
         //command.insertLocation();
-
-        command.insertListing();
         command.insertListing();
 
         command.selectTotalReportData();
