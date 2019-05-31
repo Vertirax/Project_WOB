@@ -1,2 +1,2 @@
 # Project WOB
-WOB task
+WOB task by András Krizsán
