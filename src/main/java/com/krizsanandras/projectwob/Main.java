@@ -6,27 +6,26 @@ import java.sql.SQLException;
 public class Main {
     public static void main(String[] argv) throws SQLException, IOException {
 
-        long startTime = System.nanoTime();
-
         DatabaseHelper command = new DatabaseHelper();
-        //command.insertMarketplace();
-        //command.insertListingStatus();
-        //command.insertLocation();
+
+        // INSERTs to database
+        command.insertMarketplace();
+        command.insertListingStatus();
+        command.insertLocation();
         command.insertListing();
 
+        // SELECTs from database for report
         command.selectTotalReportData();
         command.selectBestListerEmail();
         command.selectMonthlyReportData();
         command.selectMonthlyBestListerEmail();
 
+        // writes the report
         command.writeReport();
 
+        // uploads the file
         UploadToFTP upload = new UploadToFTP();
         upload.uploadReport("report.json");
-
-        long endTime = System.nanoTime();
-        long totalTime = endTime - startTime;
-        System.out.println(totalTime / 1000000 );
 
     }
 }

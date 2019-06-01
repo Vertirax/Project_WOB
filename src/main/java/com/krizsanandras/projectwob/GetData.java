@@ -13,6 +13,8 @@ public class GetData {
 
         final String uri = "https://my.api.mockaroo.com/" + toGet + "?key=63304c70";
 
+        System.out.println("Reading data from API: " + toGet + "...");
+
         RestTemplate restTemplate = new RestTemplate();
         String result = restTemplate.getForObject(uri, String.class);
 

@@ -10,25 +10,23 @@ public class UploadToFTP {
     public void uploadReport(String filename) throws FileNotFoundException {
 
         FTPClient client = new FTPClient();
-        //String filename = "report.json";
-
         FileInputStream fis = new FileInputStream(filename);
 
         try {
-            client.connect("localhost");
+            client.connect("ftp.dlptest.com");
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         try {
-            client.login("user", "password");
+            client.login("dlpuser@dlptest.com", "5p2tvn92R0di8FdiLCfzeeT0b");
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         try {
             client.storeFile(filename, fis);
-            System.out.println("Report file uploaded successfully!");
+            System.out.println("Report file uploaded successfully.");
         } catch (IOException e) {
             e.printStackTrace();
         }
